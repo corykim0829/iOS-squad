@@ -1,4 +1,4 @@
-## iOS-SQUAD <img src="https://github.com/corykim0829/iOS-squad/blob/master/images/codesquad.png?raw=true" width="32px">
+## iOS-SQUAD <img src="https://github.com/corykim0829/iOS-squad/blob/master/Images/codesquad.png?raw=true" width="48px">
 
 ## 목차
 
