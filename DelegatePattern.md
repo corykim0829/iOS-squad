@@ -52,7 +52,9 @@ iOS에서 자주 사용하는 delegator인 UITableViewDelegate나 UICollectionVi
 
 여기서 기억해야 할 사항은 위임자와 대리자가 서로 메시지를 보내고 응답하면서 통신을 한다는 것이다.
 
-![delegate](/Users/adorabledy/Desktop/delma/iOS-squad/images/delegate.jpeg)
+<img src="https://user-images.githubusercontent.com/40784518/74105996-1956e180-4ba6-11ea-8553-dbd4f62564bb.jpeg" width="70%"></img>
+
+
 
 애플 개발자 문서에 있는 예제에 대한 설명을 이 그림으로 대신한다.
 
@@ -111,24 +113,6 @@ class MyViewController: UIViewController, UICollectionViewDelegate, UICollection
 - https://www.swiftbysundell.com/articles/delegation-in-swift/
 - https://www.appcoda.com/swift-delegate/
 - https://stackoverflow.com/questions/5431413/difference-between-protocol-and-delegates
-
- 
-
-
-
-
-
-
-
-데이터소스
-
-데이터소스는 델리게이트와 거의 동일하나, 차이점은 위임 객체와의 관계에 있다.
-
-델리게이트는 사용자 인터페이스의 제어를 위임하고, 데이터소스는 데이터 제어를 위임한다
-
-델리게이트와 같은 데이터 소스는 프로토콜을 채택하고 해당 프로토콜의 필수 메소드를 구현해야 한다.
-
-데이터 소스는 대리자 객체 뷰에 제공하는 모델 객체의 메모리를 관리한다
 
 
 
