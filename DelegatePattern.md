@@ -30,7 +30,7 @@ iOS에서 자주 사용하는 delegator인 UITableViewDelegate나 UICollectionVi
 
 **위임자** 
 
-- 대리자는 일반적으로 framework object이다.
+- 위임자는 일반적으로 framework object이다.
 
 - 대리자에 대한 참조를 유지한다.
 
