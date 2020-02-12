@@ -18,7 +18,7 @@ Delegation은 하나의 객체가 프로그램에서 다른 객체를 대신하�
 예시로 **Delegating object**를 AppKit 프레임워크의 NSWindow 클래스의 인스턴스이다. NSWindow는 `windowShouldClose:`라는 메소드를 가지고 있는 프로토콜을 선언한다. 사용자가 윈도우의 닫기를 클릭하면, 윈도우 객체는 `windowshouldClose:` 를 delegate에 보내서 윈도우가 닫혔는지 확인하도록 요청한다. delegate는 Boolean 값을 리턴하여 윈도우 객체의 동작을 제어한다.
 
 - Delegating Object : 프레임워크 객체
-- Deleag : 커스텀 컨트롤러 객체
+- Delegate : 커스텀 컨트롤러 객체
 
 <img src="https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Art/delegation_2x.png">
 
