@@ -62,3 +62,38 @@ UIControl
   - 텍스트 자르기가 발생하기 전 텍스트 간격을 좁힌다. label은 폰트, 현재 줄 넓이, 줄 바꿈 모드와 다른 관련된 정보를 기반으로 좁힐 수 있는 최대 값을 결정한다.
 
 #### Managing Highlight Values
+
+- `var highlightedTextColor: UIColor? { get set }`
+  - 강조 색깔이 적용된 label의 텍스트
+  - Text 버튼 타입을 구현하기 위해서 label을 사용하는 서브클래스들은 버튼의 눌린 상태를 그릴 때, 이 프로퍼티를 사용할 수 있다.
+  - 지정된 UIColor는 `isHighlighted` 프로퍼티가 true일 때, 자동적으로 적용된다.
+- `var isHighlighted: Bool { get set }`
+  - 강조표시로 Label을 그려야하는지 여부를 나타내는 Boolean 값
+  - default값은 false이다.
+
+#### Drawing a Shadow
+
+- `var shadowColor: UIColor? { get set }`
+  - 그림자의 색깔로, default 값은 nil이며 그려진 그림자가 없다는 것을 의미한다.
+- `var shadowOffset: CGSize { get set }`
+  - 이 프로퍼티에서 다른 효과를 가지기 위해서는 그림자 색깔은 nil이 아니여야한다.
+  - default offset 사이즈는 `(0, 1)` 이며, 이는 그림자가 텍스트 1포인트 위에 있다는 의미이다.
+  - 텍스트 그림자는 명시된 offset과 color 함께 그리고 blurring 없이 그려진다.
+
+#### Drawing and Positioning Overrides
+
+- `func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect`
+  - Returns the drawing rectangle for the label’s text.
+
+- `func drawText(in rect: CGRect)`
+  - Draws the label's text (or its shadow) in the specified rectangle.
+
+#### Getting the Layout Constraints
+
+- `var preferredMaxLayoutWidth: CGFloat { get set }`
+  - The preferred maximum width (in points) for a multiline label.
+
+#### Setting and Getting Attributes
+
+- `var isUserInteractionEnabled: Bool { get set }`
+  - A boolean value that determines whether user events are ignored and removed from the event queue.
