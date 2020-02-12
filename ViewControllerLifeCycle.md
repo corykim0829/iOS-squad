@@ -27,7 +27,7 @@
 
 
 
-## Methods be called
+## State change method of view
 
  `UIViewController` 는 뷰가 보여진 상태에 따라 호출하는 메소드가 다르다.
 
@@ -35,7 +35,8 @@
 
 - `viewDidLoad()`
 
-  -  일반적으로, content view가 처음 생성될 때만 호출된다.
+  - 뷰 계층이 메모리에 로드된 직후 호출되는 메서드이다.
+  - 일반적으로, content view가 처음 생성될 때만 호출된다.
   - viewController의 추가적인 setup을 이곳에서 작성하면 된다.
 
 - `viewWillAppear()`
@@ -46,7 +47,7 @@
 
 - `viewDidAppear()`
 
-  - viewController의 content view가 뷰 계층에 추가되기 직후(화면에 완전히 보여지고 난 후)에 호출된다.
+  - viewController의 content view가 뷰 계층에 추가된 직후(화면에 완전히 보여지고 난 후)에 호출된다.
   - 데이터를 가져오거나 애니메이션 처럼 뷰가 화면에 나타난 즉시 발생해야 하는 작업들은 이 메소드를 이용한다.
 
 - `viewWillDisappear()`
@@ -54,14 +55,16 @@
   - viewController의 content view가 뷰 계층에 제거되기 직전(화면에서 사라지기 시작하면서)에 호출된다.(다음 뷰 컨트롤러의 전환이 발생하고 원본 뷰 컨트롤러가 화면에서 제거되기 전)
 
   - 일반적으로 이 시점에서 수행해야 하는 작업이 거의 없다.
+  - 뷰가 생성된 뒤 발생한 변화를 이전 상태로 되돌리기 좋은 시점. 
 
     
 
 - `viewDidDisappear()`
 
-  - viewController의 content view가 뷰 계층에 제거되기 직후(화면에서 완전히 사라지고 난 후)에 호출된다.
+  - viewController의 content view가 뷰 계층에 제거된 직후(화면에서 완전히 사라지고 난 후)에 호출된다.
 
-  - 뷰 컨트롤러가 화면에 없는 동안 실행해서는 안되는 작업을 중지하려면 이 메소드를 이용한다. 
+  - 뷰를 숨기는 것과 관련된 추가적인 작업을 하기 좋은 시점이다.(뷰 컨트롤러가 화면에 없는 동안 실행해서는 안되는 작업을 중지하려면 이 메소드를 이용한다.)
+  - 시간이 오래 걸리는 작업은 하지 않는 것이 좋다.
 
     
 
@@ -76,4 +79,4 @@
 - https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/WorkWithViewControllers.html#//apple_ref/doc/uid/TP40015214-CH6-SW3
 - https://www.codementor.io/@hemantkumar434/view-controller-lifecycle-ios-applications-7oyju9lp6
 - https://theswiftpost.co/view-lifecycle/
-
+- https://www.edwith.org/boostcourse-ios/lecture/16858
