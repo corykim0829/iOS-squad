@@ -11,9 +11,11 @@ UIControl
 - 인터페이스에서 label의 사이즈와 좌표를 제어하기 위해 Auto Layout 규칙을 설정해야한다.
 - 접근성 정보와 현지화 된 문자열을 제공한다.
 
+<br>
 
+### Topics
 
-### Accessing the Text Attributes
+#### Accessing the Text Attributes
 
 - `var text: String? { get set }`
   - label에서 보여지는 현재 텍스트
@@ -27,16 +29,36 @@ UIControl
 - `var isEnabled: Bool { get set }`
   - 이 프로퍼티는 label을 그리는 방법을 결정한다. Disabled된 텍스트는 활성화 여부를 나타내기 위해 흐리게 표시된다. 이 프로퍼티는 default로 true이다.
 
-### Sizing the Label’s Text
+#### Sizing the Label’s Text
 
 - `var adjustsFontSizeToFitWidth: Bool { get set }`
+
   - dufault 값은 false이며 label의 바운딩에 맞추어 폰트 사이즈가 줄어들어야하는지를 담고 있는 Boolean 값이다. true로 바꾸면 `minimumScaleFactor` 프로퍼티를 수정하여 적절한 최소 폰트 배율을 설정해야한다.
+
 - `var baselineAdjustment: UIBaselineAdjustment { get set }`
-  - 텍스트가 label에 맞게 줄어들어야할 때, 텍스트 baseline이 어떻게 조정되는지 제어한다.
-  - ` adjustsFontSizeToFitWidth` 프로퍼티가 true이면 이 프로퍼티는 
+
+  - 텍스트가 label에 맞게 줄어들어야할 때, 텍스트 **baseline**이 어떻게 조정되는지 제어한다. baseline이 뭔지 모르겠으면 아래 그림을 참고
+
+  - ` adjustsFontSizeToFitWidth` 프로퍼티가 true이면 이 프로퍼티는 폰트사이즈 조정이 필요할 때, text baseline의 행동을 제어한다. default 값은 `UIBaselineAdjustment.alignBaseline` 이다. 이 프로퍼티는 `numberOfLines` 프로퍼티가 1일 때 가장 효과적이다.
+
+    **UIBaselineAdjustment**
+
+    - `.alignBaselines` : default값으로, 텍스트를 label의 baseline에 맞추어 조정한다.
+    - `.alignCenters` : Label의 bounding box의 중심에 맞추어 텍스트를 조정한다.
+    - `.none` : Label bounding box의 top-left 코너에 맞추어 텍스트를 조정한다. 
+
+  <img src="https://irekasoft.com/_main/wp-content/uploads/Typography-Basics.jpg" width="480px">
+
 - `var minimumScaleFactor: CGFloat { get set }`
+
   - `adjustsFontSizeToFitWidth`가 true일 때, 폰트 크기 value가 아닌 현재 폰트에서 작아져야할 때 최소 배율을 작성한다. default는 0이며 0으로하면 현재 폰트가 그대로 반영된다.
+
 - `var numberOfLines: Int { get set }`
+
   - 텍스트를 렌더링하는 최대 줄 개수이다. default 값은 1이며, 0으로 설정하면 필요한 만큼 줄을 사용할 수 있다.
+
 - `var allowsDefaultTighteningForTruncation: Bool { get set }`
+
   - 텍스트 자르기가 발생하기 전 텍스트 간격을 좁힌다. label은 폰트, 현재 줄 넓이, 줄 바꿈 모드와 다른 관련된 정보를 기반으로 좁힐 수 있는 최대 값을 결정한다.
+
+#### Managing Highlight Values
