@@ -22,6 +22,16 @@ Delegation은 하나의 객체가 프로그램에서 다른 객체를 대신하�
 
 <img src="https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Art/delegation_2x.png">
 
+#### Delegation and Notification
+
+Delegate는 자동적으로 delegating object의 알림의 observer로 등록이된다. delegate는 특정 알림 메세지를 받기 위해 framework 클래스에 의해 선언된 notification 메소드를 구현만하면 된다.  -> 뭔말인지 모르겠다. ^^
+
+#### Data Source
+
+delegate와 거의 동일하다. 차이점은 delegating object와의 관계이다. UI 제어를 위임받는게 아닌, **data 제어**를 위임받는다. delegating object는 보통 table view와 같은 view 객체인데, 자신의 data sourcr를 가지고 있어 때때로 표시할 data가 있는지 묻는다. Data source도 delegate와 마찬가지로 protocol을 채택하고 최소한 protocol의 필수 메소드를 구현해야한다. Data source는 delegating view에 제공하는 모델 객체들의 메모리를 관리한다.
+
+---
+
 ### UIImagePickerController
 
 실제 사용되는 코드로 예시를 들어보자
