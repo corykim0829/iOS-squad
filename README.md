@@ -2,10 +2,28 @@
 
 ## 목차
 
-- UITabBar/ UITabBarController
+- [Delegation Pattern](https://github.com/corykim0829/iOS-squad/blob/master/README.md#delegation-pattern)
+- [ViewController](https://github.com/corykim0829/iOS-squad/blob/master/README.md#viewcontroller)
+- [UIView](https://github.com/corykim0829/iOS-squad/blob/master/README.md#uiview)
 
-- 
-- 
+
+
+## Delegation Pattern
+
+- [Delma - Delegation Pattern in iOS](https://github.com/corykim0829/iOS-squad/blob/master/delma/delegation-pattern.md)
+
+- [Cory - Delegation Pttern](https://github.com/corykim0829/iOS-squad/blob/master/cory/delegation-pattern.md)
+- [Json - Delegation Pattern vs Protocol](https://github.com/corykim0829/iOS-squad/blob/master/jason/delegation-pattern.md)
+
+
+
+## ViewController
+
+- [LifeCycle](https://github.com/corykim0829/iOS-squad/blob/master/delma/ViewControllerLifeCycle.md)
+
+## UIView
+
+- [UILabel](https://github.com/corykim0829/iOS-squad/blob/master/cory/UILabel.md)
 
 ## Members
 
