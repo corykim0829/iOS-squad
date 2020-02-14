@@ -20,6 +20,8 @@
 ## ViewController
 
 - [LifeCycle](https://github.com/corykim0829/iOS-squad/blob/master/delma/ViewControllerLifeCycle.md)
+- Presentation and Transitions
+  - [Using Segues](https://github.com/corykim0829/iOS-squad/blob/master/cory/Using-Segues-show.md)
 
 ## UIView
 
