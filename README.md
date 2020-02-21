@@ -27,6 +27,12 @@
 
 - [UILabel](https://github.com/corykim0829/iOS-squad/blob/master/Cory/UILabel.md)
 
+## ARC
+
+- [Delma](https://github.com/corykim0829/iOS-squad/blob/master/delma/ARC.md)
+- [Jason](https://github.com/corykim0829/iOS-squad/blob/master/jason/2_19/ARC.md)
+
+
 ## Members
 
 - [Cory](https://github.com/corykim0829)
