@@ -22,7 +22,7 @@
 - [LifeCycle](https://github.com/corykim0829/iOS-squad/blob/master/delma/ViewControllerLifeCycle.md)
 - Presentation and Transitions
   - [Using Segues](https://github.com/corykim0829/iOS-squad/blob/master/Cory/Using-Segues-show.md)
-
+  - [Using Segues-jason](https://github.com/corykim0829/iOS-squad/blob/master/jason/2_14/Segue.md)
 ## UIView
 
 - [UILabel](https://github.com/corykim0829/iOS-squad/blob/master/Cory/UILabel.md)
