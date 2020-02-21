@@ -29,8 +29,9 @@
 
 ## ARC
 
-- [Delma](https://github.com/corykim0829/iOS-squad/blob/master/delma/ARC.md)
-- [Jason](https://github.com/corykim0829/iOS-squad/blob/master/jason/2_19/ARC.md)
+- [Delma - ARC.md](https://github.com/corykim0829/iOS-squad/blob/master/delma/ARC.md)
+- [Cory - Automatic Reference Counting.md](https://github.com/corykim0829/iOS-squad/blob/master/Cory/Automatic%20Reference%20Counting.md)
+- [Jason - ARC.md](https://github.com/corykim0829/iOS-squad/blob/master/jason/2_19/ARC.md)
 
 
 ## Members
