@@ -13,7 +13,7 @@
 - [Delma - Delegation Pattern in iOS](https://github.com/corykim0829/iOS-squad/blob/master/delma/delegation-pattern.md)
 
 - [Cory - Delegation Pttern](https://github.com/corykim0829/iOS-squad/blob/master/Cory/delegation-pattern.md)
-- [Json - Delegation Pattern vs Protocol](https://github.com/corykim0829/iOS-squad/blob/master/jason/delegation-pattern.md)
+- [Jason - Delegation Pattern vs Protocol](https://github.com/corykim0829/iOS-squad/blob/master/jason/delegation-pattern.md)
 
 
 
