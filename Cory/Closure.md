@@ -207,3 +207,10 @@ lazy var closure = { [unowned self] in
 
 
 
+#### reference
+
+- [swift.org - closure](https://docs.swift.org/swift-book/LanguageGuide/Closures.html#ID546)
+
+- [Functional swift: All about Closures](https://medium.com/@abhimuralidharan/functional-swift-all-about-closures-310bc8af31dd)
+
+- [Methods with completion callback in iOS swift](https://medium.com/@abhimuralidharan/methods-with-completion-callback-in-ios-swift-fd889fca86dc)
