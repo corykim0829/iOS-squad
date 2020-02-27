@@ -12,8 +12,8 @@
 
 - [Delma - Delegation Pattern in iOS](https://github.com/corykim0829/iOS-squad/blob/master/delma/delegation-pattern.md)
 
-- [Cory - Delegation Pttern](https://github.com/corykim0829/iOS-squad/blob/master/Cory/delegation-pattern.md)
-- [Jason - Delegation Pattern vs Protocol](https://github.com/corykim0829/iOS-squad/blob/master/jason/delegation-pattern.md)
+- [Cory - Delegation Pttern](https://github.com/corykim0829/iOS-squad/blob/master/cory/delegation-pattern.md)
+- [Json - Delegation Pattern vs Protocol](https://github.com/corykim0829/iOS-squad/blob/master/jason/delegation-pattern.md)
 
 
 
@@ -21,18 +21,11 @@
 
 - [LifeCycle](https://github.com/corykim0829/iOS-squad/blob/master/delma/ViewControllerLifeCycle.md)
 - Presentation and Transitions
-  - [Using Segues](https://github.com/corykim0829/iOS-squad/blob/master/Cory/Using-Segues-show.md)
-  - [Using Segues-jason](https://github.com/corykim0829/iOS-squad/blob/master/jason/2_14/Segue.md)
+  - [Using Segues](https://github.com/corykim0829/iOS-squad/blob/master/cory/Using-Segues-show.md)
+
 ## UIView
 
-- [UILabel](https://github.com/corykim0829/iOS-squad/blob/master/Cory/UILabel.md)
-
-## ARC
-
-- [Delma - ARC](https://github.com/corykim0829/iOS-squad/blob/master/delma/ARC.md)
-- [Cory - Automatic Reference Counting](https://github.com/corykim0829/iOS-squad/blob/master/Cory/Automatic%20Reference%20Counting.md)
-- [Jason - ARC](https://github.com/corykim0829/iOS-squad/blob/master/jason/2_19/ARC.md)
-
+- [UILabel](https://github.com/corykim0829/iOS-squad/blob/master/cory/UILabel.md)
 
 ## Members
 
