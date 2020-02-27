@@ -58,7 +58,7 @@ incrementByTen()
 하지만  `Capturing by reference` 라는 말이 선뜻 이해가 안가네요. 
 
 무엇이 이해가 안가냐면, 
-<br>클로저가 surrounding context가 value type이든, reference type이든 context를 Capturing by reference를 합니다는데, 
+<br>클로저가 surrounding context가 value type이든, reference type이든 context를 Capturing by reference를 한다는데, 
 <br>결론적으로 **value type인 context를 어떻게 참조로 캡쳐합니다는 것(Capturing by reference)일까요?**
 
 이것이 매우 궁금하여 구글링도 해보고, 아는 선생님께 질문을 해본 뒤에, 다음과 같은 사실을 알아냈습니다. 
@@ -140,7 +140,7 @@ demo2()
 => 클로저는 캡쳐할 변수를 실행되는 시점에 평가합니다. 따라서 위의 예제에서 클로저는 1초 후에 실행이 되는데, 1초가 되기 전에 이미 pokemon이라는 변수는 "Mewtwo"라는 이름을 가진 포켓몬 인스턴스를 참조하므로, **클로져는 "Mewtwo"라는 이름을 가진 포켓몬 객체를 캡쳐합니다.**
 <br>따라서, 실행화면을 보면 Pickachu는 함수가 끝나자마자 메모리에서 deallocated 되고, Mewtwo는 1초후에 클로저가 실행되고 메모리에서 deallocated됨을 알 수 있습니다.  
 
-> 그러면 위의 코드에서 클로저가 호출될때 Mewtwo를 출력하지 않고 Pikachu를 출력하고 싶을면 어떻게 해야 할까? 답은 capture list에 있습니다. 
+> 그러면 위의 코드에서 클로저가 호출될때 Mewtwo를 출력하지 않고 Pikachu를 출력하고 싶을면 어떻게 해야 할까요? 답은 capture list에 있습니다. 
 
 ## 4. Capture List을 사용하면 캡쳐된 변수는 클로저가 생성되는 시점에 평가되어집니다. 
 
@@ -175,7 +175,7 @@ demo3()
 * 말 그대로 값 타입은 값 타입으로서의 특성을 띄고 있고, 참조 타입은 참조 타입은 참조 타입으로서의 특성을 띄고 있기 때문에 조심하라는 것입니다. 
 
 * 아래 코드를 보면 demo1()에서 struct 타입인 StructPokemon 객체인 경우에는 클로저가 호출할 때 이전의 이름이 Pikachu를 출력하고, demo2()에서 class 타입인 Pokemon 객체의 경우에는 클로저가 호출할 때 현재의 이름인 Mewtwo가 호출됨을 알 수 있습니다. 
-<br>왜냐하면 캡쳐리스트로 캡쳐할 때 value type인 경우에는 값을 복사하고, reference type인 경우에는 주소값을 복사하기 때문입니다.    
+<br>왜냐하면 capture list로 캡쳐할 때 value type인 경우에는 값을 복사하고, reference type인 경우에는 주소값을 복사하기 때문입니다.    
 
 ```swift
 class Pokemon: CustomDebugStringConvertible {
