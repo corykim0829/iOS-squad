@@ -83,9 +83,9 @@ class UserModelController {
 
 ### Weak references are not always the answer
 
-두개의 샘플 코드를 보면 self를 약하게 참조하는 방식이 언제나 맞는 방법인 것 같지만, 꼭 그런 것은 아니다. 다른 메모리 관리방식 처럼, 우리는 self가 각 상황에서 어떻게 사용되고 있는지를 신중하게 고려해야하고, 얼마나 메모리에 남아있어야하는지
+두개의 샘플 코드를 보면 self를 약하게 참조하는 방식이 언제나 맞는 방법인 것 같지만, 꼭 그런 것은 아니다. 다른 종류의 메모리 관리와 마찬가지로, 우리는 `self`가 각 상황에서 어떻게 사용되고 있는지, 그리고 캡쳐 클로저가 얼마나 메모리에 남아있어야하는지를 신중하게 고려해야한다.
 
-생명주기가 짧은 클로저를 다룰 때에는, UIView.animate API
+예를 들어, UIView.animate API와 같이 빨리 끝나는 클로저를 다룰 때에는, `self`를 캡쳐하는 것은 큰 문제가 되지 않으며 코드를 더 읽기 쉽게 도와준다.
 
 ```swift
 extension ProductViewController {
@@ -97,6 +97,58 @@ extension ProductViewController {
     }
 }
 ```
+
+탈출 클로저 내에서 인스턴스 메소드와 속성에 접근할 때 헝상 명시적으로 `self`를 참조해야한다. That’s a good thing, as it requires us to make an explicit decision to capture `self`, given the consequences that doing so might have.
+
+때로는 `self`를 조금 더 오래 참조하여 사용하고 싶을 상황이 있을 수 있다. 예를들어 만약 클로저의 작업을 위해 현재 객체가 필요할 때이다.
+
+```swift
+extension NetworkingController {
+    func makeImageUploadingTask(for image: Image) -> Task {
+        Task { handler in
+            let request = Request(
+                endpoint: .imageUpload,
+                payload: image
+            )
+
+            // The current NetworkingController is required here,
+            // so for as long the returned task is retained,
+            // we'll also retain its underlying controller:
+            self.perform(request, then: handler)
+        }
+    }
+}
+```
+
+위 코드는 `NetworkingController`가 생선한 task에 대한 참조를 유지하지 않기 때문에 retan cycle이 발생하지 않는다. 
+
+우리는 capture list를 사용하여 `self`를 참조하는 것이 아니라, 각 클로저의 의존성들을 직접적으로 캡쳐할 수 있다. 예를 들어 여기서 우리는 image loder의 `cache` 프로퍼티를 **캡쳐**하여 image가 성공적으로 다운로드 되면 이를 사용하려고 한다.
+
+```swift
+class ImageLoader {
+    private let cache = Cache<URL, Image>()
+
+    func loadImage(
+        from url: URL,
+        then handler: @escaping (Result<Image, Error>) -> Void
+    ) {
+        // Here we capture our image loader's cache without
+        // capturing 'self', and without having to deal with
+        // any optionals or weak references:
+        request(url) { [cache] result in
+            do {
+                let image = try result.decodedAsImage()
+                cache.insert(image, forKey: url)
+                handler(.success(image))
+            } catch {
+                handler(.failure(error))
+            }
+        }
+    }
+}
+```
+
+위 방식은 `self`로 전체로 접근하는 것보다 이렇게 몇개의 프로퍼티에만 접근하려고 할 때 유용하다. 단, 캡쳐되는 프로퍼티들이 클래스 인스턴스와 같은 **레퍼런스 타입**이거나 **immutable value 타입**을 가지고 있는 한에서 적용된다.
 
 
 

@@ -11,9 +11,6 @@
 
 
 
-Capturing Values에 관한 
-{: .notice}
-
 전역 함수와 중첩함수는 사실상 클로저의 특별한 케이스라고 할 수 있다. 클로저는 다음 3가지 형태로 표현될 수 있다.
 
 - **Global function**은 이름을 가지고 어떤 변수도 캡쳐하지 않는 클로저다.
@@ -24,7 +21,8 @@ Capturing Values에 관한
 
 - 파라미터를 추론하고 context로부터 값타입을 반환한다.
 - 단일 표현 클로저에서 암시적인 반환
-- 
+- 단축된 인자명 사용가능
+- 후행 클로저 구문
 
 
 
@@ -69,7 +67,7 @@ func incrementer() -> Int {
 }
 ```
 
-`incrementer()` 함수는 파라미터 없이, 함수 내에서 `runningTotal`과 `amount`를 참조하여 사용한다. 이것은 함수 주변의 `runningTotal`과 `amount`에 대한 **참조**를 **캡쳐**하여 함수 내에서 사용할 수 있다. **레퍼런스로 캡쳐하는 것(Capturing by reference)**은 `makeIncrementer` 함수의 호출이 끝나도 `runningTotal`과 `amount`가 사라지지 않게해주며, 다음에 `incrementer` 함수가 호출될 때, `runningTotal`을 사용할 수 있도록 해준다.
+`incrementer()` 함수는 파라미터 없이, 함수 내에서 `runningTotal`과 `amount`를 참조하여 사용한다. 이것은 함수 주변의 `runningTotal`과 `amount`에 대한 **참조**를 **캡쳐**하여 함수 내에서 사용할 수 있다. **레퍼런스로 캡쳐하는 것(Capturing by reference)** 은 `makeIncrementer` 함수의 호출이 끝나도 `runningTotal`과 `amount`가 사라지지 않게해주며, 다음에 `incrementer` 함수가 호출될 때, 
 
 ```swift
 let incrementByTen = makeIncrementer(forIncrement: 10)
