@@ -5,8 +5,9 @@
 - [Delegation Pattern](https://github.com/corykim0829/iOS-squad/blob/master/README.md#delegation-pattern)
 - [ViewController](https://github.com/corykim0829/iOS-squad/blob/master/README.md#viewcontroller)
 - [UIView](https://github.com/corykim0829/iOS-squad/blob/master/README.md#uiview)
+- [Closure](https://github.com/corykim0829/iOS-squad/blob/master/README.md#closure)
 
-
+<br>
 
 ## Delegation Pattern
 
@@ -14,8 +15,6 @@
 
 - [Cory - Delegation Pttern](https://github.com/corykim0829/iOS-squad/blob/master/cory/delegation-pattern.md)
 - [Json - Delegation Pattern vs Protocol](https://github.com/corykim0829/iOS-squad/blob/master/jason/delegation-pattern.md)
-
-
 
 ## ViewController
 
@@ -26,6 +25,14 @@
 ## UIView
 
 - [UILabel](https://github.com/corykim0829/iOS-squad/blob/master/cory/UILabel.md)
+
+## Closure
+
+- Cory
+  - [Closure](https://github.com/corykim0829/iOS-squad/blob/master/cory/Closure.md)
+  - [Swift's Closure Capturing mechanics](https://github.com/corykim0829/iOS-squad/blob/master/cory/Swift's-closure-capturing-mechanics.md)
+- Delma
+- Jason
 
 ## Members
 
