@@ -26,13 +26,25 @@
 
 - [UILabel](https://github.com/corykim0829/iOS-squad/blob/master/Cory/UILabel.md)
 
+## ARC
+
+- [Jason - ARC](https://github.com/corykim0829/iOS-squad/blob/master/jason/2_19/ARC.md)
+
+- [Delma - ARC](https://github.com/corykim0829/iOS-squad/blob/master/delma/ARC.md) 
+
+- [Cory - Automatic Reference Counting](https://github.com/corykim0829/iOS-squad/blob/master/Cory/Automatic%20Reference%20Counting.md)
+
+
 ## Closure
 
 - Cory
   - [Closure](https://github.com/corykim0829/iOS-squad/blob/master/Cory/Closure.md)
-  - [Swift's Closure Capturing mechanics](https://github.com/corykim0829/iOS-squad/blob/master/Cory/Swift's-closure-capturing-mechanics.md)
+  - [Swift's Closure Capturing mechanics](https://github.com/corykim0829/iOS-squad/blob/master/Cory/Swift%E2%80%99s-closure-capturing-mechanics.md)
 - Delma
+  - [Capture List](https://github.com/corykim0829/iOS-squad/blob/master/delma/Closure_CaptureList.md)
+
 - Jason
+  - [about closure capture](https://github.com/corykim0829/iOS-squad/blob/master/jason/2_26/about_closure.md)
 
 ## Members
 
