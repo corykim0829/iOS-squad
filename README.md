@@ -1,11 +1,13 @@
-## iOS-SQUAD <img src="https://github.com/corykim0829/iOS-squad/blob/master/Images/codesquad.png?raw=true" width="24px">
+# iOS-SQUAD <img src="https://github.com/corykim0829/iOS-squad/blob/master/Images/codesquad.png?raw=true" width="24px">
 
 ## 목차
 
 - [Delegation Pattern](https://github.com/corykim0829/iOS-squad/blob/master/README.md#delegation-pattern)
 - [ViewController](https://github.com/corykim0829/iOS-squad/blob/master/README.md#viewcontroller)
 - [UIView](https://github.com/corykim0829/iOS-squad/blob/master/README.md#uiview)
+- [ARC](https://github.com/corykim0829/iOS-squad/blob/master/README.md#arc)
 - [Closure](https://github.com/corykim0829/iOS-squad/blob/master/README.md#closure)
+- [Observer Pattern](https://github.com/corykim0829/iOS-squad/blob/master/README.md#observer-pattern)
 
 <br>
 
@@ -16,15 +18,33 @@
 - [Cory - Delegation Pttern](https://github.com/corykim0829/iOS-squad/blob/master/Cory/delegation-pattern.md)
 - [Json - Delegation Pattern vs Protocol](https://github.com/corykim0829/iOS-squad/blob/master/jason/delegation-pattern.md)
 
+<br>
+
+
+
 ## ViewController
 
-- [LifeCycle](https://github.com/corykim0829/iOS-squad/blob/master/delma/ViewControllerLifeCycle.md)
-- Presentation and Transitions
-  - [Using Segues](https://github.com/corykim0829/iOS-squad/blob/master/Cory/Using-Segues-show.md)
+- Cory
+  - [LifeCycle](https://github.com/corykim0829/iOS-squad/blob/master/delma/ViewControllerLifeCycle.md)
+  - Presentation and Transitions
+    - [Using Segues](https://github.com/corykim0829/iOS-squad/blob/master/Cory/Using-Segues-show.md)
+- Delma
+  - [ViewController LifeCycle](https://github.com/corykim0829/iOS-squad/blob/master/delma/ViewControllerLifeCycle.md)
+  - [Container Controller](https://github.com/corykim0829/iOS-squad/blob/master/delma/ContainerController.md)
+
+- Jason
+  - [Segue](https://github.com/corykim0829/iOS-squad/blob/master/jason/2_14/Segue.md)
+  - [Nib Files](https://github.com/corykim0829/iOS-squad/blob/master/jason/2_14/nib_file.md)
+  - [Object Archiving](https://github.com/corykim0829/iOS-squad/blob/master/jason/2_14/object_archiving.md)
+  - [Object Graph](https://github.com/corykim0829/iOS-squad/blob/master/jason/2_14/object_graph.md)
+
+<br>
 
 ## UIView
 
 - [UILabel](https://github.com/corykim0829/iOS-squad/blob/master/Cory/UILabel.md)
+
+<br>
 
 ## ARC
 
@@ -33,6 +53,9 @@
 - [Delma - ARC](https://github.com/corykim0829/iOS-squad/blob/master/delma/ARC.md) 
 
 - [Cory - Automatic Reference Counting](https://github.com/corykim0829/iOS-squad/blob/master/Cory/Automatic%20Reference%20Counting.md)
+
+<br>
+
 
 
 ## Closure
@@ -45,6 +68,26 @@
 
 - Jason
   - [about closure capture](https://github.com/corykim0829/iOS-squad/blob/master/jason/2_26/about_closure.md)
+
+<br>
+
+
+
+## Observer Pattern
+
+- Cory
+  - [The Observer Pattern - Notification](https://github.com/corykim0829/iOS-squad/blob/master/Cory/observer-pattern/observer-pattern-notification.md)
+  - [NSNotification, an Object of Notification](https://github.com/corykim0829/iOS-squad/blob/master/Cory/observer-pattern/NSNotification-object.md)
+- Delma
+  - [KVO](https://github.com/corykim0829/iOS-squad/blob/master/delma/KVO.md)
+- Jason
+  - [KVO Apple Article](https://github.com/corykim0829/iOS-squad/blob/master/jason/3_03/kvo_apple_article.md)
+
+
+
+<br>
+
+
 
 ## Members
 
