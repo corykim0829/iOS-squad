@@ -59,8 +59,6 @@ Associate the Observer with the Property to Observe
 
 ## Observer를 관찰할 프로퍼티와 연결하기 
 
-You associate the property you want to observe with its observer by passing the object to the initializer of the observer:
-
 객체를 observer를 생성할 때 매개변수로 전달하여 관찰하려는 프로퍼티를 observer와 연결합니다.
 
 ```swift
@@ -69,8 +67,6 @@ let observer = MyObserver(object: observed)
 ```
 
 ## 프로퍼티 변화에 응답 
-
-Objects that are set up to use key-value observing—such as observed above—notify their observers about property changes. The example below changes the myDate property by calling the updateDate method. That method call automatically triggers the observer's change handler:
 
 위에서 관찰한 것처럼 key-value observation을 사용하도록 설정된 객체는 observer에게 프로퍼티 변경에 대해 알립니다. 
 아래 예제는 updateDate 메소드를 호출하여 myDate 프로퍼티를 변경합니다. 
