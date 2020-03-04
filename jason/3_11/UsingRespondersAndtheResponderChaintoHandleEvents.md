@@ -20,7 +20,7 @@ responder 객체는 UIResponder 클래스의 모든 instance이며 일반적인 
 
 
 텍스트 필드가 이벤트를 처리하지 않으면 UIKit은 이벤트를 텍스트 필드의 부모 UIView 객체로 보낸 다음 window의 root 뷰를 보냅니다.
-root view에서 responder chain은 이벤트를 window으로 보내기 전에 자신의 view controller로 전달합니다. window가 이벤트를 처리할 수 없는 경우, UIKit은 이벤트를 UIApplication 객체 및 해당 객체가 UIResponder의 인스턴스이고 아직 responder chain의 일부가 아닌 경우 앱 Delegate게 전달합니다.
+root view에서 responder chain는 이벤트를 window으로 보내기 전에 자신(root view)의 view controller로 전달합니다. window가 이벤트를 처리할 수 없는 경우, UIKit은 이벤트를 UIApplication 객체 및 해당 객체가 UIResponder의 인스턴스이고 아직 responder chain의 일부가 아닌 경우 앱 Delegate 에게 전달합니다.
 
 ## Determining an Event's First Responder
 
@@ -53,7 +53,7 @@ control의 target 객체가 nil일때, UIKit는 target 객체에서 시작하여
 예를 들어, UIKit의 editing menu는 이 동작을 사용하여 `cut (_ :), copy (_ :) 또는 paste (_ :)` 와 같은 이름을 가진 메소드를 구현하는 responder 객체를 탐색합니다.
 
 **Gesture recognizer는 그들의 뷰가 이벤트를 수신하기 전에 먼저 touch 와 press 이벤트들을 수신합니다.** 
-만약에 뷰의 Gusture recognizer가 일련의 터치를 인식하지 못하면 UIKit는 터치를 뷰로 보냅니다. 뷰가 터치를 처리하지 않으면 UIKit은 responder chain에 전달합니다.
+**만약에 뷰의 Gusture recognizer가 일련의 터치를 인식하지 못하면 UIKit는 터치를 뷰로 보냅니다.(Gesture recognizer가 인식한다면 안보낸다는 뜻)** 뷰가 터치를 처리하지 않으면 UIKit은 responder chain에 전달합니다.
 
 ## Determining Which Responder Contained a Touch Event
 
@@ -66,16 +66,12 @@ UIView의 hitTest (_ : with :) 메소드는 지정된 터치를 포함하는 가
 결과적으로 뷰의 clipsToBounds 속성이 false 인 경우 터치를 포함하더라도 해당 뷰의 bounds를 벗어난 subview는 반환되지 않습니다.
 
 터치가 발생하면 UIKit는 UITouch 객체를 만들어, 뷰와 연결합니다.
-터치의 위치나 다른 파라미터가 변하면, UIKit은 똑같은 UITouch 객체를 새로운 정보로 업데이트합니다(같은 인스턴스이지만 프로퍼티만 바꾼다는 뜻인 것 같다).
+터치의 위치나 다른 파라미터가 변하면, UIKit은 똑같은 UITouch 객체를 새로운 정보로 업데이트합니다(**손가락이 화면에 닿고 떼어질 때까지 동일한 터치 객체를 사용한다**, 예: 터치하고 움직이면 터치의 위치도 변한다.).
 <br>변하지 않는 프로퍼티는 오직 해당 뷰(UITouch 객체의 프로퍼티이다, view: The view to which touches are being delivered, if any.)입니다. (터치 위치가 원래 뷰의 외부로 움직이더라도 터치한 뷰 프로퍼티는의 값은 변하지 않습니다.) 터치가 끝날때 UIKit는 UITouch 객체를 해제합니다. 
 
 ## Altering the Responder Chain
 
-You can alter the responder chain by overriding the next property of your responder objects. When you do this, the next responder is the object that you return.
-
 responder 객체의 next 프로퍼티를 재정의하여 responder chain을 변경할 수 있습니다. 이렇게 하면 next responder는 당신이 설정한 개체입니다.
-
-Many UIKit classes already override this property and return specific objects, including:
 
 많은 UIKit 클래스는 이미 이 프로퍼티(next)을 재정의하고 다음과 같은 특정 객체를 반환합니다.
 
