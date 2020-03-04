@@ -4,16 +4,16 @@
 
 # Swift에서 Key-Value Observing 사용하기
 
-* 다른 객체의 프로퍼티들의 변화에 대해 객체에 알립니다.  
+* 다른 객체의 프로퍼티들의 변화에 대해 객체에 알립니다.
 
 ## 개요
 
-key-value observing은 다른 객체의 프로퍼티 변경에 대해 객체에 알리기 위해 사용하는 Cocoa 프로그래밍 패턴입니다. 
+key-value observing은 다른 객체의 프로퍼티 변경에 대해 객체에 알리기 위해 사용하는 Cocoa 프로그래밍 패턴입니다.
 Model과 View 등 논리적으로 분리된 앱 부분 간에 변경 사항을 전달하는 데 유용합니다. NSObject에서 상속된 클래스에서만 key-value-observing 을 사용할 수 있습니다.
 
 ## key-value observing을 위한 프로퍼티에 annotate 달기
 
-@objc 프로퍼티와 dynamic modifier를 모두 사용하여 key-value observing을 통해 관찰하려는 프로퍼티을 표시하십시오. 
+@objc 프로퍼티와 dynamic modifier를 모두 사용하여 key-value observing을 통해 관찰하려는 프로퍼티을 표시하십시오.
 아래 예제는 관찰할 수 있는 myDate 프로퍼티를 가진 MyObjectToObserve 클래스를 정의합니다. (=> 관찰당하는 놈)
 
 ```swift
@@ -25,7 +25,7 @@ class MyObjectToObserve: NSObject {
 }
 ```
 
-## Observer 정의하기 
+## Observer 정의하기
 
 옵저버 클래스의 인스턴스는 하나 이상의 프로퍼티에 대한 변경 사항에 대한 정보를 관리합니다.
 옵저버를 만들 때 관찰하려는 프로퍼티을 참조하는 키 경로(key path)와 함께 observe (_ : options : changeHandler :) 메서드를 호출하여 관찰(observation)을 시작합니다.
@@ -36,11 +36,11 @@ class MyObjectToObserve: NSObject {
 class MyObserver: NSObject {
     @objc var objectToObserve: MyObjectToObserve
     var observation: NSKeyValueObservation?
-    
+
     init(object: MyObjectToObserve) {
         objectToObserve = object
         super.init()
-        
+
         observation = observe(
             \.objectToObserve.myDate,
             options: [.old, .new]
