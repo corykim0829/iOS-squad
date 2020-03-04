@@ -78,3 +78,10 @@ observed.updateDate() // Triggers the observer's change handler.
 ```
 
 위의 예는 Date의 new value과 old value을 모두 인쇄하여 프로퍼티 변경에 응답합니다.
+=======
+# Using Key-Value Observing in Swift
+
+> apple article 번역본임을 알려드립니다. 
+<br>출처 : <https://developer.apple.com/documentation/swift/cocoa_design_patterns/using_key-value_observing_in_swift>
+  
+>>>>>>> add kvo.md
