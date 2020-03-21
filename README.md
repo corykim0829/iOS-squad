@@ -83,11 +83,15 @@
 - Jason
   - [KVO Apple Article](https://github.com/corykim0829/iOS-squad/blob/master/jason/3_03/kvo_apple_article.md)
 
-
-
 <br>
 
+## Archiving
 
+- UserDefaults와 NSKeyedArchiver사용해서 데이터 저장하기
+  - [NSKeyedArchiver](https://github.com/corykim0829/iOS-squad/blob/master/Cory/archiving/NSKeyedArchiver.md)
+  - [UserDefaults](https://github.com/corykim0829/iOS-squad/blob/master/Cory/archiving/UserDefaults.md)
+
+<br>
 
 ## Members
 
