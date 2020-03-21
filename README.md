@@ -8,6 +8,7 @@
 - [ARC](https://github.com/corykim0829/iOS-squad/blob/master/README.md#arc)
 - [Closure](https://github.com/corykim0829/iOS-squad/blob/master/README.md#closure)
 - [Observer Pattern](https://github.com/corykim0829/iOS-squad/blob/master/README.md#observer-pattern)
+- [Archiving](https://github.com/corykim0829/iOS-squad/blob/master/README.md#archiving)
 
 <br>
 
@@ -98,3 +99,5 @@
 - [Cory](https://github.com/corykim0829)
 - [Delma](https://github.com/delmaSong)
 - [Jason](https://github.com/ehgud0670)
+- [Jinie](https://github.com/idevjinie)
+
