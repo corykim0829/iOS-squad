@@ -13,7 +13,7 @@ UICollectionViewLayout은 collectionViewController를 만들 때 필수로 필�
 
 ## UICollectionViewLayout
 
-collectionView의 layout 정보를 생성하는 추상적인 **'기반 클래스' (base class)**
+CollectionView의 layout 정보를 생성하는 추상적인 **'기반 클래스' (base class)**
 
 공식문서에는 위와같이 설명이 나와있다.
 
@@ -60,7 +60,7 @@ Collection view는 시시각각 layout 객체에 layout 정보를 요청하여 �
 
 이 메소드들은 필수 collection view가 스크린에 정보들을 배치하는데 필요한 layout 정보를 제공한다. 당연히 layout이 supplementary나 decoration view를 지원하지 않는다면 해당 메소드는 구현할 필요는 없다.
 
-collection view에 있는 데이터가 바뀌거나 항목이 추가 또는 삭제될 될 때, collection view는 layout 객체에 layout정보를 업데이트하라고 요청한다. 특히 이동, 추가 또는 삭제된 항목은 새 위치가 반영되어 업데이트된 layout 정보를 가지게된다. 이동된 아이템은 collection view가 아이템의 업데이트된 layout 속성(attributes)을 가져오기 위해 standard 메소드를 사용한다. 추가되거나 삭제된 항목에 대해서는 collection view가 다른 메소드를 사용하는데, 적절한 layout 정보를 제공하기 위해서는 우리가 오버라이드해서 사용해야한다.
+Collection view에 있는 데이터가 바뀌거나 항목이 추가 또는 삭제될 될 때, collection view는 layout 객체에 layout정보를 업데이트하라고 요청한다. 특히 이동, 추가 또는 삭제된 항목은 새 위치가 반영되어 업데이트된 layout 정보를 가지게된다. 이동된 아이템은 collection view가 아이템의 업데이트된 layout 속성(attributes)을 가져오기 위해 standard 메소드를 사용한다. 추가되거나 삭제된 항목에 대해서는 collection view가 다른 메소드를 사용하는데, 적절한 layout 정보를 제공하기 위해서는 우리가 오버라이드해서 사용해야한다.
 
 - [`initialLayoutAttributesForAppearingItem(at:)`](https://developer.apple.com/documentation/uikit/uicollectionviewlayout/1617789-initiallayoutattributesforappear)
 - [`initialLayoutAttributesForAppearingSupplementaryElement(ofKind:at:)`](https://developer.apple.com/documentation/uikit/uicollectionviewlayout/1617737-initiallayoutattributesforappear)
@@ -70,6 +70,8 @@ collection view에 있는 데이터가 바뀌거나 항목이 추가 또는 삭�
 - [`finalLayoutAttributesForDisappearingDecorationElement(ofKind:at:)`](https://developer.apple.com/documentation/uikit/uicollectionviewlayout/1617762-finallayoutattributesfordisappea)
 
 이 메소드들 외에도, 우리는 [`prepare(forCollectionViewUpdates:)`](https://developer.apple.com/documentation/uikit/uicollectionviewlayout/1617784-prepare) 메소드를 오버라이드하여 layout에 관련된 준비를 처리할 수 있다. 또한  [`finalizeCollectionViewUpdates()`](https://developer.apple.com/documentation/uikit/uicollectionviewlayout/1617787-finalizecollectionviewupdates) 를 오버라이드하여 전체 애니메이션 블록에 애니메이션을 추가하거나 최종 layout 관련 작업들을 구현할 수 있다.
+
+<br>
 
 #### Optimizing Layout Performance Using Invalidation Contexts
 
@@ -83,7 +85,7 @@ If you define a custom invalidation context class for your layout object, you sh
 
 ## UICollectionViewFlowLayout
 
-A concrete layout object that organizes items into a grid with optional header and footer views for each section.
+각 섹션에 대해 선택적인 header와 footer view와 함께 그리드의 아이템을 정리하는 **구체적인(concrete) layout** 객체이다.
 
 #### Declaration
 
@@ -92,8 +94,6 @@ class UICollectionViewFlowLayout : UICollectionViewLayout
 ```
 
 #### Overview
-
-The items in the collection view flow from one row or column (depending on the scrolling direction) to the next, with each row comprising as many cells as will fit. Cells can be the same sizes or different sizes.
 
 collection view의 아이템들은 하나의 행 또는 열(스크롤 방향에 따라)에서 다음 아이템으로 흐르는데, 각 행(또는 열)에는 가능한 많은 cell이 들어간다. Cell들은 사이즈가 서로 같거나 다를 수도 있다.
 
@@ -126,7 +126,7 @@ open class UICollectionViewController : UIViewController, UICollectionViewDelega
 
 모든 `UICollectionViewController`는 `UICollectionView` 객체를 가지고 있다. 그리고 `UICollectionViewController`를 코드로 초기화할 때에는 `UICollectionViewLayout`을 인자로 넘겨줘야 한다.
 
-
+<br>
 
 ```swift
 open class UICollectionView : UIScrollView, UIDataSourceTranslating {
@@ -156,8 +156,6 @@ UICollectionViewLayout는 사실 심플한 녀석이다. collectionview의 자�
 2. `CollectionViewContentSize` — Property
 3. `layoutAttributesForElements(in rect)`
 4. `layoutAttributesForItem(at indexPath)`
-
-in **UICollectionViewLayout**, all these functions and property do nothing. For example, layoutAttributesForElements(in rect) return nils in UICollectionViewLayout. **UICollectionViewLayout** is waiting for someone to subclass it and provide the appropriate content.
 
 `UICollectionViewLayout`에서는 이 함수들과 프로퍼티는 아무것도 하지 않는다. 예를들어 `layoutAttributesForElements(in rect)`는 nil값을 반환한다. `UICollectionViewLayout`은 **서브클래싱**을 하여 적절한 컨텐츠를 제공해주길 기다리고 있다.
 
