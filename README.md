@@ -9,6 +9,7 @@
 - [Closure](https://github.com/corykim0829/iOS-squad/blob/master/README.md#closure)
 - [Observer Pattern](https://github.com/corykim0829/iOS-squad/blob/master/README.md#observer-pattern)
 - [Archiving](https://github.com/corykim0829/iOS-squad/blob/master/README.md#archiving)
+- [UICollectionViewController](https://github.com/corykim0829/iOS-squad/blob/master/README.md#uicollectionviewcontroller)
 
 <br>
 
@@ -91,6 +92,12 @@
 - UserDefaults와 NSKeyedArchiver사용해서 데이터 저장하기
   - [NSKeyedArchiver](https://github.com/corykim0829/iOS-squad/blob/master/Cory/archiving/NSKeyedArchiver.md)
   - [UserDefaults](https://github.com/corykim0829/iOS-squad/blob/master/Cory/archiving/UserDefaults.md)
+
+<br>
+
+## UICollectionViewController
+
+- [UICollectionViewLayout vs UICollectionViewFlowLayout](https://github.com/corykim0829/iOS-squad/blob/master/Cory/collectionView/UICollectionViewLayout-101.md)
 
 <br>
 
