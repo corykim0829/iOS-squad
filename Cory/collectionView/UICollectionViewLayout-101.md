@@ -99,9 +99,9 @@ collection view의 아이템들은 하나의 행 또는 열(스크롤 방향에 
 
 **Flow layout**은 collection view의 **delegate 객체**를 통해 각 섹션과 그리드의 아이템, header 그리고 footer의 사이즈를 결정한다. 이 delegate 객체는 반드시 `UICollectionViewDelegateFlowLayout` 프로토콜을 채택해야한다. delegate의 사용은 layout 정보를 다이나믹하게 조절할 수 있게 해준다. 예를 들면, 그리드에 있는 아이템의 사이즈를 다르게 하고싶다면 delegate 객체를 사용해야한다. Delegate를 제공하지 않으면, flow layout은 이 클래스의 프로퍼티를 사용해 우리가 세팅해놓은 default 값을 사용한다.
 
-Flow layout은 내용을 보여주기 위해 하나의 방향에서는 **고정된 거리(fixed distance)**를 사용하고, 다른 곳에서는 **스크롤 가능한 거리(scrollable distance)**를 사용한다. 예를 들어, 수직으로 스크롤하는 그리드에서는 그리드 컨텐츠의 가로길이가 collection view의 가로길이 의해서 제한되는데 반면에 컨텐츠의 높이는 그리드의 섹션과 아이템에 맞게 다이나믹하게 조절된다. Layout은 기본적으로 수직으로 스크롤되게 설정되지만 `scrollDirection` 프로퍼티를 사용하여 스크롤 방향을 설정할 수 있다.
+Flow layout은 내용을 보여주기 위해 하나의 방향에서는 **고정된 거리(fixed distance)** 를 사용하고, 다른 곳에서는 **스크롤 가능한 거리(scrollable distance)** 를 사용한다. 예를 들어, 수직으로 스크롤하는 그리드에서는 그리드 컨텐츠의 가로길이가 collection view의 가로길이 의해서 제한되는데 반면에 컨텐츠의 높이는 그리드의 섹션과 아이템에 맞게 다이나믹하게 조절된다. Layout은 기본적으로 수직으로 스크롤되게 설정되지만 `scrollDirection` 프로퍼티를 사용하여 스크롤 방향을 설정할 수 있다.
 
-Flow layout의 각 섹션은 자신의 커스텀 header와 footer를 가질 수 있다. View에 header와 footer를 설정하기 위해서는 header와 footer 사이즈가 0이 되지 않도록 설정해줘야한다. 적절한 **delegate 메소드**를 사용하거나 적당한 값을 [`headerReferenceSize`](https://developer.apple.com/documentation/uikit/uicollectionviewflowlayout/1617710-headerreferencesize)와 [`footerReferenceSize`](https://developer.apple.com/documentation/uikit/uicollectionviewflowlayout/1617703-footerreferencesize) 프로퍼티에 할당함으로써 사이즈를 설정해줄 수 있다. 만약 header와 footer의 사이즈가 0이라면, collection view에 추가되지 않을 것이다.
+Flow layout의 각 섹션은 자신의 커스텀 header와 footer를 가질 수 있다. View에 header와 footer를 설정하기 위해서는 header와 footer 사이즈가 0이 되지 않도록 설정해줘야한다. 적절한 **delegate 메소드** 를 사용하거나 적당한 값을 [`headerReferenceSize`](https://developer.apple.com/documentation/uikit/uicollectionviewflowlayout/1617710-headerreferencesize)와 [`footerReferenceSize`](https://developer.apple.com/documentation/uikit/uicollectionviewflowlayout/1617703-footerreferencesize) 프로퍼티에 할당함으로써 사이즈를 설정해줄 수 있다. 만약 header와 footer의 사이즈가 0이라면, collection view에 추가되지 않을 것이다.
 
 <br>
 
