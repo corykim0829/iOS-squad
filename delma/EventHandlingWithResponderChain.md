@@ -65,10 +65,10 @@ Responder chain의 다음 속성을 오버라이드 해, responder chain을 변�
 
 - `UIView` objects
 뷰가 뷰컨트롤러의 루트 뷰인 경우, 다음 responder는 뷰 컨트롤러, 그렇지 않으면 다음 responder는 뷰의 슈퍼뷰가 된다. (뷰->슈퍼뷰->루트뷰->뷰컨트롤러 식으로 reponder chain이 올라감)
-- `UIViewControlle` objects
+- `UIViewController' objects
 뷰 컨트롤러의 뷰가 window의 루트뷰인 경우, 다음 responder는 window 객체이다.
 다른 뷰 컨트롤러에 의해 뷰 컨트롤러가 제시된(was presented) 경우, 다음 responder는 제시된(presenting) 뷰 컨트롤러이다.
-- `UIViewdow` objects
+- `UIwindow` objects
 window의 다음 responder는 UIApplication 객체이다
 - `UIApplication` objects
 다음 responder는 app delegate 이다. 오직 app delegate가 `UIResponder`의 인스턴스이고 뷰, 뷰컨트롤러, 앱 자체가 아닌 경우에만 해당한다.
