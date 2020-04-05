@@ -58,3 +58,8 @@
 - **Rotate** : 이미지나 뷰를 회전시킨다.
 <img src="https://developer.apple.com/design/human-interface-guidelines/ios/images/gestures-rotation_2x.png" width="240px">
 
+<br>
+
+#### Original Document
+
+- [Gestures](https://developer.apple.com/design/human-interface-guidelines/ios/user-interaction/gestures/)
