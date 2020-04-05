@@ -1,5 +1,7 @@
 # Modality
 
+
+
 Modality는 사용자의 이전 컨텍스트와는 별개로 컨텐츠를 임시적인 모드로 표시하는 디자인 테크닉이다. 종료하려면 명시적인 조치가 필요하다. 
 
 - 사람들이 독립적인 작업 또는 밀접하게 관련된 옵션에 집중하도록 돕는다.
@@ -8,7 +10,7 @@ Modality는 사용자의 이전 컨텍스트와는 별개로 컨텐츠를 임시
 iOS는 앱의 특정 상황에서 사용하는 Alerts, Activity Views, Action Sheets를 제공한다. 앱에 사용자 정의 모달 컨텐츠를 표시하기 위해 iOS13 이상은 다음과 같은 프레젠테이션 스타일을 지원한다.
 
 
-
+![](https://images.velog.io/images/delmasong/post/a9399c3e-4f0f-46b6-8f63-1b163ae11ab1/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202020-04-05%20%EC%98%A4%ED%9B%84%204.53.50.png)
 ### Sheet
 
 sheet 프레젠테이션 스타일은 기본 내용을 부분적으로 커버하는 카드로 나타나고, 그것과의 상호작용을 방지하기 위해 모든 노출된 영역을 흐리게 한다. 현재 카드 뒤에는 카드를 열 때 중단한 작업을 기억하도록 하기 위해 상위 보기 또는 이전 카드의 위쪽 가장자리가 보인다. 아래와 같은 방법으로 카드를 지운다.
@@ -53,3 +55,5 @@ fullscreen 프레젠테이션 스타일은 전체 화면을 포괄한다. 이전
 
 개발자 지침은 [UIViewController](https://developer.apple.com/documentation/uikit/uiviewcontroller)및 [UIPresentationController](https://developer.apple.com/documentation/uikit/uipresentationcontroller)를 참조하십시오.
 
+**Reference**
+https://developer.apple.com/design/human-interface-guidelines/ios/app-architecture/modality/

@@ -1,15 +1,10 @@
 # Essentials of URLSession
 
-
-
 ## URLSession Overview
 
 URLSession은 HTTP 기반 요청을 처리하기 위한 클래스다.
 
-
-
-![02-URLSession-Diagram-650x432](/Users/adorabledy/Desktop/02-URLSession-Diagram-650x432.png)
-
+![](https://images.velog.io/images/delmasong/post/1421bc10-fa2d-40f9-919b-5bf2f7fe863a/02-URLSession-Diagram-650x432.png)
 
 
 ` URLSession`은 요청을 보내고 받는 핵심 개체로 `URLSessionConfiguration`을 통해 생성할 수 있다. 
@@ -52,8 +47,8 @@ URLSessionTask 클래스는 URLSession 의 태스크에 대한 기본 클래스�
 - URLSessionUploadTask: POST, PUT 메소드를 통해 디스크에서 웹 서비스로 파일을 업로드 한다.
 - URLSessionDownloadTask: 이 작업을 통해 리모트 서비스에서 임시 파일 위치로 파일을 다운로드 할 수 있다. 
 
-![02-URLSession-Diagram-650x432](/Users/adorabledy/Desktop/03-Session-Tasks.png)
 
+![](https://images.velog.io/images/delmasong/post/ccc61fee-8ab2-4016-b782-04dde6fed797/03-Session-Tasks.png)
 
 
 작업을 일시 중단, 재개 및 취소할 수도 있다. `URLSessionDownloadTask` 는 미래의 복구를 위해 일시중지할 수 있는 추가적인 능력이 있다. 
@@ -73,6 +68,3 @@ URLSessionTask 클래스는 URLSession 의 태스크에 대한 기본 클래스�
 - https://developer.apple.com/documentation/foundation/urlsession
 - https://developer.apple.com/documentation/foundation/urlsessionconfiguration
 - https://www.raywenderlich.com/3244963-urlsession-tutorial-getting-started
-
-
-
