@@ -32,7 +32,7 @@ Segue가 추가 정보를 저장하거나 perform() 메서드 이외의 것을 �
 
 UIKit은 전환 중에 자동으로 뷰 컨트롤러를 생성하고 표시하므로 segue가 발생하기 전에 prepare(for:sender:) 메서드를 사용하여 데이터를 해당 뷰 컨트롤러에 전달해야 한다. Segue를 시작한 객체가 포함된 뷰 컨트롤러에서 메서드를 구현하면 된다.
 
-```
+```swift
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let subViewController = segue.destination as? SubViewController {
         subViewController.data = self.data
@@ -44,7 +44,7 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
 델리게이트 디자인 패턴을 사용하여 서브 뷰 컨트롤러에서 메인 뷰 컨트롤러로 데이터를 다시 전달할 수 있다. prepare(for:sender:) 메서드에서 해당 관계를 구성하며, 메인 뷰 컨트롤러가 서브 뷰 컨트롤러의 델리게이트가 되어야 한다.
 
-```
+```swift
 protocol MyDataDelegate {
     func passData(_ data: MyData)
 }
