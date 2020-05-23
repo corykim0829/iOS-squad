@@ -1,24 +1,20 @@
 ## ASWebAuthenticationSession
 
-A session that an app uses to authenticate a user through a web service.
+앱이 웹 서비스를 통해 사용자를 인증하는 세션
 
-
-
-### Declaration
+#### Declaration
 
 ```swift
 class ASWebAuthenticationSession : NSObject
 ```
 
-### Overview
+#### Overview
 
 Use an `ASWebAuthenticationSession` instance to authenticate a user through a **web service**, including one run by a **third party**. **Initialize the session** with a URL that points to the authentication webpage. A browser loads and displays the page, from which the user can authenticate. In iOS, the browser is a secure, **embedded web view**. In macOS, the system opens the user’s default browser if it supports web authentication sessions, or Safari otherwise.
 
-제 3자를 포함하여, 웹 서비스를 통해 사용자를 인증하기 위해서 `ASWebAuthenticationSession` 인스턴스를 사용한다. 인증 웹페이지를 가리키는 URL로 session을 초기화한다. 브라우저는 사용자가 인증할 수 있는 페이지를 로드하고 표시한다. iOS에서 브라우저는 안전한 내장 web view이다. In macOS, the system opens the user’s default browser if it supports web authentication sessions, or Safari otherwise.
+써드 파티에서 실행되는 것을 포함하여, 웹 서비스를 통해 사용자를 인증하기 위해서 `ASWebAuthenticationSession` 인스턴스를 사용해야 합니다. 인증 웹페이지를 가리키는 URL로 **session을 초기화**합니다. 브라우저는 사용자가 인증을 할 수 있는 페이지를 로드하고 표시합니다. iOS에서 브라우저는 안전하고 내장된 web view입니다.
 
-완료 시, 해당 서비스는 callback URL을 세션에 인증 token을 보내고, 세션은 이 URL을 completion handler를 통해 앱으로 보낸다.
-
-For more details, see [Authenticating a User Through a Web Service](https://developer.apple.com/documentation/authenticationservices/authenticating_a_user_through_a_web_service).
+완료 시, 해당 서비스는 세션에 callback URL을 보내는데 인증 토큰(authentication token)도 함께 전송하고, 세션은 이 URL을 completion handler를 통해 앱으로 다시 보냅니다.
 
 ---
 
@@ -28,35 +24,35 @@ For more details, see [Authenticating a User Through a Web Service](https://deve
 
 앱에서 사용자 인증을 받기 위해 웹 인증 세션을 사용하자.
 
-### Overview
+#### Overview
 
-Some websites provide, as a service, a secure mechanism for authenticating users. When the user navigates to the site’s authentication URL, the site presents the user with a form to collect credentials. After validating the credentials, the site redirects the user’s browser, typically using a custom scheme, to a URL that indicates the outcome of the authentication attempt.
+어떤 웹사이트는 서비스로 사용자를 인증하는 안전한 메커니즘을 제공하고 있습니다. 사용자가 사이트 인증 URL로 이동하면, 사이트는 사용자로부터 자격(credential)을 얻기 위해 양식을 보여줍니다. 자격을 확인한 후, 사이트는 보통 **정해진 계획(custom scheme)**를 사용하는 사용자의 브라우저를 인증 시도에 대한 결과를 가리키는 URL로 리다이렉트합니다.
 
 #### Create a Web Authentication Session
 
 You can make use of a web authentication service in your app by initializing an [`ASWebAuthenticationSession`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) instance with a URL that points to the authentication webpage. The page can be one that you maintain, or one operated by a third party. During initialization, indicate the callback scheme that the page uses to return the authentication outcome:
 
+웹 인증 서비스를 앱에 사용하기 위해서는 인증 웹페이지를 가리키는 `ASWebAuthenticationSession` 인스턴스를 초기화를 해야합니다. 페이지는 우리가 유지해야하는 것 또는 써드 파티에서 실행되는 것도 있습니다. 초기화 중에는, 페이지 인증 결과를 반호나하기 위해 사용하는 **콜백 계획(callback scheme)** 의미한다.
+
 ```swift
-// Use the URL and callback scheme specified by the authorization provider.
+// URL 과 인증 provider에 의해 명시된 callback scheme을 사용해야 합니다.
 guard let authURL = URL(string: "https://example.com/auth") else { return }
 let scheme = "exampleauth"
 
-// Initialize the session.
+// 세션 초기화
 let session = ASWebAuthenticationSession(url: authURL, callbackURLScheme: scheme)
 { callbackURL, error in
-    // Handle the callback.
+    // callback 처리
 }
 ```
 
-Use the initializer’s trailing closure to tell the session how to handle the callback after authentication completes, as described below in [Handle the Callback](https://developer.apple.com/documentation/authenticationservices/authenticating_a_user_through_a_web_service#3395261).
-
-In macOS, or if you have a deployment target of iOS 13 or later, the session keeps a strong reference to itself until the authentication process completes to prevent the system from deallocating the closure. For earlier iOS deployment targets, your app needs to keep a strong reference to the session until authentication completes.
+[Handle the Callback](https://developer.apple.com/documentation/authenticationservices/authenticating_a_user_through_a_web_service#3395261) 에 설명되어있는 것 처럼, 인증을 완료한 후에 callback을 어떻게 처리할지에 대해서는 이니셜라이저의 후행 클로저를 사용해야합니다. macOS 또는 배포 타겟이 iOS13 또는 이후 버전을 가지고 있다면, 시스템이 클로저를 할당 해제하지 못하도록 인증 프로세스가 완료될 때까지 자체적으로 강한참조를 유지합니다. 이전 iOS 배포 타겟의 경우 인증이 완료될 때까지 앱이 세션을 강하게 참조해야합니다. 
 
 <br>
 
 #### Provide a Presentation Context
 
-Your app indicates the window that should act as a presentation anchor for the session by adopting the [`ASWebAuthenticationPresentationContextProviding`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationpresentationcontextproviding) protocol. From the [`presentationAnchor(for:)`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationpresentationcontextproviding/3237230-presentationanchor) method, which is the protocol’s one required method, return the window that should act as the anchor:
+앱에서 [`ASWebAuthenticationPresentationContextProviding`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationpresentationcontextproviding) 프로토콜을 채택하여 세션의 presentation anchor로 작동해야하는 창을 나타냅니다. 프로토콜의 필수 메소드인 [`presentationAnchor(for:)`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationpresentationcontextproviding/3237230-presentationanchor) 메소드에서 anchor 역할을 해야하는 창을 반환해야 합니다:
 
 ```swift
 extension ViewController: ASWebAuthenticationPresentationContextProviding {
@@ -66,7 +62,7 @@ extension ViewController: ASWebAuthenticationPresentationContextProviding {
 }
 ```
 
-After creating the session, set an appropriate context provider instance as the session’s [`presentationContextProvider`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession/3237232-presentationcontextprovider) delegate:
+세션을 생성한 후에, 적절한 context provider 인스턴스를 세션의  [`presentationContextProvider`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession/3237232-presentationcontextprovider) delegate로 설정합니다:
 
 ```swift
 session.presentationContextProvider = viewController
@@ -76,54 +72,58 @@ session.presentationContextProvider = viewController
 
 #### Optionally Request Ephemeral Browsing
 
-You can configure the session to request ephemeral browsing by setting the session’s [`prefersEphemeralWebBrowserSession`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession/3237231-prefersephemeralwebbrowsersessio) property to `true`:
+세션의  [`prefersEphemeralWebBrowserSession`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession/3237231-prefersephemeralwebbrowsersessio) 프로퍼티를 true로 설정하여 임시 브라우징을 요청하도록 세션을 구성할 수 있다.
 
 ```swift
 session.prefersEphemeralWebBrowserSession = true
 ```
 
-This setting asks the browser to avoid using any existing browsing data, like cookies, during the authentication process. It also asks that the browser avoid retaining any data collected during the authentication attempt beyond the lifetime of the attempt, or sharing it with any other session. An ephemeral session improves security but prevents reusing the result of a previously successful authentication, potentially forcing the user to reenter credentials. As a result, it’s typically best to let the user choose whether to request ephemeral browsing.
+이 설정은 인증 프로세스 중에 쿠키와 같은 기존의 브라우징 데이터를 사용하지 않도록 브라우저에 요청합니다. 또한 브라우저가 인증 시도 중에 수집된 데이터를 수명 이상으로 유지하거나 다른 세션과 공유하지 않도록 요청합니다. 임시 세션은 보안을 향상시키지만 이전에 성공한 인증 결과를 재사용하지 못하게 하여 사용자가 자격 증명을 다시 입력하게 할 수 있습니다. 따라서 일반적으로 임시 브라우징을 요청할지 안할지에 대한 여부를 사용자가 선택하도록 하는 것이 가장 좋습니다.
 
 Safari always respects the request. In macOS, the user can choose a different default browser that might or might not respect the request.
 
-Note
+Safari는 항상 요청을 존중(respect)합니다. macOS에서는, 사용자는 기본 브라우저를 선택할 수 있어 요청을 존중하지 않을 수도 있습니다.
 
-When not using an ephemeral session, all cookies except session cookies are available to the browser.
+> Note
+>
+> 임시 세션을 사용하지 않으면, 세션 쿠키를 제외한 모든 쿠키를 브라우제엇 사용할 수 있습니다.
 
 #### Start the Authentication Flow
 
-After configuring the session, call its [`start()`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession/2990953-start) method:
+세션 구성을 마치고 세션의 [`start()`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession/2990953-start) 메소를 호출합니다:
 
 ```swift
 session.start()
 ```
 
-In iOS, the session loads the authentication web page that you indicated during initialization in an embedded browser view. In macOS, the session sends the page load request to the user’s default browser if it handles authentication sessions, or to Safari otherwise. In any case, the browser presents the user with the authentication page, which is typically a form for entering a username and password.
+iOS에서 세션은 우리가 내장된 브라우저 뷰의 초기화 중 표시된 인증 웹 페이지를 로드합니다. macOS에서 세션은 인증 세션을 처리하는 경우 페이지 로드 요청을 사용자의 기본 브라우저로 보내거나 그렇지 않으면 Safari로 보냅니다. 어쨌든 브라우저는 사용자에게 인증 페이지를 제공합니다. 인증 페이지는 일반적으로 사용자 이름과 비밀번호를 입력하기 위한 양식입니다.
 
-You can cancel the authentication attempt from your app before the user finishes by calling the session’s [`cancel()`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession/2990951-cancel) method:
+앱에서 사용자가 인증을 마무리하기 전에 [`cancel()`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession/2990951-cancel) 메소드를 호출하여 인증 시도를 취소시킬 수 있습니다.
 
 ```swift
 session.cancel()
 ```
 
-When you cancel, the session automatically dismisses the corresponding browser view.
+인증을 취소하면, 세션은 자동적으로 대응하는 브라우저 뷰를 자동적으로 dismiss한다.
 
 #### Handle the Callback
 
-After the user authenticates, the authentication provider redirects the browser to a URL that uses the callback scheme. The browser detects the redirect, dismisses itself, and passes the complete URL to your app by calling the closure you specified during initialization.
+사용자 인증 후에, 인증 provider는 callback scheme을 사용하는 URL로 브라우저를 리다이렉트 한다. 브라우저는 리다이렉트를 감지하여 스스로 dismiss하며, 초기화에서 명시한 클로저를 호출하여 complete URL을 앱에 전달한다.
 
 When you receive this callback, first check for errors. For example, you receive the [`canceledLogin`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsessionerror/2991134-canceledlogin) error if the user aborts the flow by dismissing the browser window. If the error is `nil`, inspect the callback URL to determine the outcome of the authentication:
+
+이 callback을 받으면, 먼저 에러를 검사해야합니다. 예를 들어 사용자가 브라우저 창을 닫아 인증 흐름(flow)이 중단된다면, [`canceledLogin`](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsessionerror/2991134-canceledlogin) 에러를 받게됩니다. 에러가 `nil`이면, 인증의 결과를 판단하기 위해 callback URL을 검사한다.
 
 ```swift
 guard error == nil, let callbackURL = callbackURL else { return }
 
-// The callback URL format depends on the provider. For this example:
+// callback URL 형식은 provider에 따라 다르다. 이 예제에서는:
 //   exampleauth://auth?token=1234
 let queryItems = URLComponents(string: callbackURL.absoluteString)?.queryItems
 let token = queryItems?.filter({ $0.name == "token" }).first?.value
 ```
 
-The above example looks for a token stored as a query parameter. The specific parsing that you have to do depends on how the auth
+위 예제 query 파라미터로 저장된 토큰을 찾습니다. 수행해야 할 특정 파싱 인증 provider가 callback URL을 구성하는 방법에 따라 다릅니다.
 
 <br>
 
